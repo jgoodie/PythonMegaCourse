@@ -36,6 +36,7 @@ def add_e(title, author, year, isbn):
     conn.close()
     
 def update_e(id, title, author, year, isbn):
+    print(id, title, author, year, isbn)
     conn=sqlite3.connect(dbconnection)
     cur=conn.cursor()
     cur.execute("UPDATE bookstore SET title=?, author=?, year=?, isbn=? WHERE id=?", (title, author, year, isbn, id))
