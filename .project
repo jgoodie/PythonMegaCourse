@@ -21,6 +21,16 @@
 			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/templates/about.html</location>
 		</link>
 		<link>
+			<name>backend.py</name>
+			<type>1</type>
+			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/app5-tkinter-sqlite/backend.py</location>
+		</link>
+		<link>
+			<name>frontend.py</name>
+			<type>1</type>
+			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/app5-tkinter-sqlite/frontend.py</location>
+		</link>
+		<link>
 			<name>home.html</name>
 			<type>1</type>
 			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/templates/home.html</location>

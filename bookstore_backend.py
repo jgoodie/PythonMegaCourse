@@ -23,12 +23,9 @@ def getall():
 def search_e(title="", author="", year="", isbn=""):
     conn=sqlite3.connect(dbconnection)
     cur=conn.cursor()
-    print(year)
-    print(author)
     cur.execute("SELECT * FROM bookstore WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
     rows=cur.fetchall()
     conn.close()
-    print(rows)
     return(rows)
     
 def add_e(title, author, year, isbn):

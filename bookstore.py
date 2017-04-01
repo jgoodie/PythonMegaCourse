@@ -1,20 +1,6 @@
-"""
-A program that stores this book information:
-Title, Author
-Year, ISBN
-
-The user can:
-
-View all records
-Search an entry 
-Add an entry
-Update entry
-Delete
-Close
-"""
 #!/usr/local/bin/python3
 
-import sqlite3, sys, bookstore_backend
+import sqlite3, bookstore_backend
 from tkinter import *
 # from bookstore_backend import *
 
@@ -30,6 +16,9 @@ def search_cmd():
     lbox.delete(0, END)
     for row in bookstore_backend.search_e(title_text.get(), year_text.get(), author_text.get(), isbn_text.get()):
         lbox.insert(END, row)
+
+def addentry_cmd():
+    bookstore_backend.add_e(title_text.get(), year_text.get(), author_text.get(), isbn_text.get())    
 
 # Create the DB table if it doesn't already exist. 
 # No need to call this since when bookstore_backend is imported it's automatically called.
@@ -72,7 +61,7 @@ viewall.grid(row=2, column=3, sticky=W)
 searchentry=Button(window,text="Search Entry", width=12, command=search_cmd)
 searchentry.grid(row=3, column=3, sticky=W)
 
-addentry=Button(window,text="Add Entry", width=12, command=view_cmd)
+addentry=Button(window,text="Add Entry", width=12, command=addentry_cmd)
 addentry.grid(row=4, column=3, sticky=W)
 
 updateentry=Button(window,text="Update Entry", width=12, command=view_cmd)
@@ -91,8 +80,10 @@ lbox.grid(row=2, column=0, rowspan=6, columnspan=2, sticky=W)
 # Create scrollbar and attach it to the listbox
 sb1 = Scrollbar(window)
 sb1.grid(row=2, column=2, rowspan=6, sticky=W)
+
 lbox.configure(yscrollcommand=sb1.set)
 sb1.configure(command=lbox.yview, highlightbackground="grey", highlightthickness=1)
+
 
 window.mainloop()
 
