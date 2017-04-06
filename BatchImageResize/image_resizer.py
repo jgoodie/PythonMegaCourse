@@ -3,6 +3,22 @@
 import cv2, os
 from re import split
 
+# Could have also imported glob instead of os.
+# Solution from the lecture
+# import cv2
+# import glob
+# 
+# images=glob.glob("*.jpg")
+# 
+# for image in images:
+#     img=cv2.imread(image,0)
+#     re=cv2.resize(img,(100,100))
+#     cv2.imshow("Hey",re)
+#     cv2.waitKey(500)
+#     cv2.destroyAllWindows()
+#     cv2.imwrite("resized_"+image,re)
+
+# My solution
 orig = "/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/BatchImageResize/originals/"
 resized = "/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/BatchImageResize/resized/"
 factor = 2
