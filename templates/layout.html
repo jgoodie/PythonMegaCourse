@@ -4,7 +4,7 @@
       <title>John's Flask App</title>
       <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
   </head>
-  <body style="background-color:#a4a8ad;">
+  <body style="background-color:#D3D3D3;">
     <header>
       <div class="container">
         <h1 class="logo">John's web app</h1>
@@ -12,6 +12,7 @@
           <ul class="menu">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('plot') }}">Hitachi Stock Plot</a></li>
           </ul>
         </nav></strong>
       </div>
