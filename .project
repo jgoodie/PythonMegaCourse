@@ -45,5 +45,10 @@
 			<type>1</type>
 			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/static/css/main.css</location>
 		</link>
+		<link>
+			<name>pi_surveillance/orig_code</name>
+			<type>2</type>
+			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/pi_surveillance/orig_code</location>
+		</link>
 	</linkedResources>
 </projectDescription>

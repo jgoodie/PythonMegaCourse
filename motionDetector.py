@@ -3,6 +3,7 @@
 # More: http://www.pyimagesearch.com/2015/06/01/home-surveillance-and-motion-detection-with-the-raspberry-pi-python-and-opencv/
 import cv2, time, pandas
 from datetime import datetime
+from bokeh.plotting import figure, output_file, show
 first_frame=None
 # Can either declare an empty list then check if len >= 2 or init list with 2 Nones and skip the len check.
 #status_list=[]
@@ -36,6 +37,7 @@ while True:
         (x, y, w, h) = cv2.boundingRect(contour)
         cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 3)
     status_list.append(status) 
+    status_list=status_list[-2:]
     # Can either declare an empty list then check if len >= 2 or init list with 2 Nones and skip the len check.
     # Check status list for movement
 #     if len(status_list)>=2 and status_list[-1] == 1 and status_list[-2] == 0:
