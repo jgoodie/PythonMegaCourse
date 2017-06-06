@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>PostgresWebApp</name>
+			<type>2</type>
+			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/PostgresWebApp</location>
+		</link>
+		<link>
 			<name>about.html</name>
 			<type>1</type>
 			<location>/Users/jgoodman/Documents/HCP Anywhere/workspaces/PythonMegaCourse/templates/about.html</location>

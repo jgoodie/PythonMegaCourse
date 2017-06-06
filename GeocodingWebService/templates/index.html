@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+	<TITLE>Geocoding Web App</TITLE>
+	<HEAD>
+		<LINK HREF="../static/css/main.css" REL="stylesheet">
+	</HEAD>
+		<BODY>
+			<DIV class="container">
+				<h1>Geocoder Web App</h1>
+				<h3>Enter your addresses in a CSV file and I'll give you lat/long coordinates</h3>
+				<div class="message">
+					{{text | safe}}
+				</div>
+				<form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+					<input title="Upload your file" placeholder="Upload your file" type="file" name="file">
+					<br>
+					<button type="submit">SUBMIT</button>
+				</form>
+			</DIV>
+		</BODY>
+</HTML>
