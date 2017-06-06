@@ -17,26 +17,28 @@ def success():
         file=request.files["file"]
         #filecontent=file.read()
         nom = Nominatim(scheme='http')
-        df = pandas.read_csv(file)
-        if not 'Address' in df.columns:
-            print("asdfasdfasdf")
-            return render_template('index.html', text="You need to have an address column labeled 'Address' ")
-        df = df.set_index("ID")
-        df["Coordinates"]=df["Address"].apply(nom.geocode)
-        df["Latitude"]=df["Coordinates"].apply(lambda x: x.latitude if x != None else None)
-        df["Longitude"]=df["Coordinates"].apply(lambda x: x.longitude if x != None else None)
-        df=df.drop("Coordinates",1)
-        currtime = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
-        fn="uploaded-" + currtime + "-" + file.filename
-        # file.save(secure_filename(fn))
-        df.to_csv(fn, sep=',')
-#         with open(fn, "a") as f:
-#             f.write("\nThis was added at " + currtime + "\n")
-        #print(df)
-        # return render_template("success.html", data=df.to_html(), btn="download.html")
-        #print(df.to_html())
-        #return render_template("success.html", btn="download.html", tables=[df.to_html(classes='all_coordinates')],titles = ['na', 'Coordinates'])
-        return render_template("success.html", btn="download.html", tables=[df.to_html(classes='all_coordinates')],titles = ['na', 'Coordinates'])
+        try:
+            df = pandas.read_csv(file)
+            if not 'Address' in df.columns:
+                return render_template('index.html', text="You need to have an address column labeled 'Address' ")
+            df = df.set_index("ID")
+            df["Coordinates"]=df["Address"].apply(nom.geocode)
+            df["Latitude"]=df["Coordinates"].apply(lambda x: x.latitude if x != None else None)
+            df["Longitude"]=df["Coordinates"].apply(lambda x: x.longitude if x != None else None)
+            df=df.drop("Coordinates",1)
+            currtime = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
+            fn="uploaded-" + currtime + "-" + file.filename
+            # file.save(secure_filename(fn))
+            df.to_csv(fn, sep=',')
+    #         with open(fn, "a") as f:
+    #             f.write("\nThis was added at " + currtime + "\n")
+            #print(df)
+            # return render_template("success.html", data=df.to_html(), btn="download.html")
+            #print(df.to_html())
+            #return render_template("success.html", btn="download.html", tables=[df.to_html(classes='all_coordinates')],titles = ['na', 'Coordinates'])
+            return render_template("success.html", btn="download.html", tables=[df.to_html(classes='all_coordinates')],titles = ['na', 'Coordinates'])
+        except:
+            return render_template('index.html', text="Make sure your file is properly formatted")
         return render_template('index.html', text="You need to have an address column labeled 'Address' ")
 
 @app.route("/download")
